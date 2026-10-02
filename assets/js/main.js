@@ -4,20 +4,18 @@ document.addEventListener('DOMContentLoaded', () => {
   const audioToggle = document.querySelector('#audio-toggle');
   const heroPlayBtn = document.querySelector('#hero-play-btn');
   const ambientAudio = document.querySelector('#ambient-audio');
-  const ambientVideo = document.querySelector('#ambient-video');
+  const allVideos = document.querySelectorAll('video');
 
-  // Garante que o vídeo de fundo rode em mudo e com autoplay imediato
-  if (ambientVideo) {
-    ambientVideo.muted = true;
-    ambientVideo.defaultMuted = true;
-    const tryPlayVideo = () => {
-      ambientVideo.play().catch(() => {});
-    };
-    tryPlayVideo();
-    window.addEventListener('scroll', tryPlayVideo, { once: true, passive: true });
-    window.addEventListener('click', tryPlayVideo, { once: true });
-    window.addEventListener('touchstart', tryPlayVideo, { once: true });
-  }
+  // Garante que todos os vídeos rodem em mudo e com autoplay imediato
+  allVideos.forEach((vid) => {
+    vid.muted = true;
+    vid.defaultMuted = true;
+    const tryPlay = () => vid.play().catch(() => {});
+    tryPlay();
+    window.addEventListener('scroll', tryPlay, { once: true, passive: true });
+    window.addEventListener('click', tryPlay, { once: true });
+    window.addEventListener('touchstart', tryPlay, { once: true });
+  });
 
   // Menu mobile
   menuToggle?.addEventListener('click', () => {

@@ -400,7 +400,7 @@ h2 { font-size: clamp(3rem, 6.5vw, 6.5rem); }
 .card-top { display: flex; justify-content: space-between; border-bottom: 1px solid rgba(240,237,229,.28); padding-bottom: 16px; color: rgba(240,237,229,.72); }
 .card-mark { color: var(--paper); font: 35px var(--serif); line-height: .5; }
 
-/* Mídia do Card Ori do Mundo */
+/* Mídia do Card Ori do Mundo (Vídeo/Imagem) */
 .card-media {
   flex: 1;
   min-height: 280px;
@@ -413,7 +413,7 @@ h2 { font-size: clamp(3rem, 6.5vw, 6.5rem); }
   border: 1px solid rgba(240,237,229,.2);
   background: rgba(20,16,13,.2);
 }
-.card-media img {
+.card-media video, .card-media img {
   width: 100%;
   height: 100%;
   max-height: 310px;
@@ -422,8 +422,9 @@ h2 { font-size: clamp(3rem, 6.5vw, 6.5rem); }
   border-radius: 6px;
   filter: saturate(.92) contrast(1.02);
   transition: transform .6s ease, filter .6s ease;
+  display: block;
 }
-.format-card:hover .card-media img {
+.format-card:hover .card-media video, .format-card:hover .card-media img {
   transform: scale(1.04);
   filter: saturate(1.05) contrast(1.05);
 }
