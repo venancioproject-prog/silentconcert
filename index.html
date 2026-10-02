@@ -3,21 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#f0ede5" />
+    <meta name="theme-color" content="#231d19" />
     <meta name="description" content="Silent Concert — música, palavra e escuta imersiva com fones de ouvido sem fio." />
     <title>Silent Concert — música, palavra, escuta</title>
     <link rel="icon" type="image/svg+xml" href="./assets/images/logo.svg" />
     <link rel="stylesheet" href="./assets/css/styles.css" />
   </head>
   <body>
-    <!-- Fundo atmosférico em vídeo (mudo por padrão) -->
-    <div class="site-ambient-bg" aria-hidden="true">
-      <video id="ambient-video" autoplay muted loop playsinline preload="auto">
-        <source src="./assets/videos/background-video.mp4" type="video/mp4" />
-      </video>
-      <div class="video-wash"></div>
-    </div>
-
     <!-- Áudio oficial do projeto Silent Concert -->
     <audio id="ambient-audio" src="./assets/audio/silent-concert-ambient.mp3" loop preload="metadata"></audio>
 
@@ -50,11 +42,20 @@
     </header>
 
     <main id="top">
-      <section class="hero section-dark" aria-labelledby="hero-title">
+      <!-- HERO com vídeo de fundo nítido e envolvente -->
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-video-bg" aria-hidden="true">
+          <video id="ambient-video" autoplay muted loop playsinline webkit-playsinline preload="auto">
+            <source src="./assets/videos/background-video.mp4" type="video/mp4" />
+          </video>
+          <div class="hero-video-overlay"></div>
+        </div>
+
         <div class="hero-frame frame-corners">
           <span class="frame-note frame-note-top">arquivo 01 / presença</span>
           <span class="frame-note frame-note-bottom">vol. 01 — 2026</span>
         </div>
+
         <div class="hero-content reveal">
           <p class="eyebrow"><span class="pulse-dot"></span> música <i>•</i> palavra <i>•</i> escuta</p>
           <h1 id="hero-title">Escutar<br /><em>também</em> é<br />entrar.</h1>

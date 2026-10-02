@@ -6,12 +6,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const ambientAudio = document.querySelector('#ambient-audio');
   const ambientVideo = document.querySelector('#ambient-video');
 
-  // Garante que o vídeo de fundo rode em mudo e com autoplay
+  // Garante que o vídeo de fundo rode em mudo e com autoplay imediato
   if (ambientVideo) {
     ambientVideo.muted = true;
-    ambientVideo.play().catch(() => {
-      // Autoplay fallback
-    });
+    ambientVideo.defaultMuted = true;
+    const tryPlayVideo = () => {
+      ambientVideo.play().catch(() => {});
+    };
+    tryPlayVideo();
+    window.addEventListener('scroll', tryPlayVideo, { once: true, passive: true });
+    window.addEventListener('click', tryPlayVideo, { once: true });
+    window.addEventListener('touchstart', tryPlayVideo, { once: true });
   }
 
   // Menu mobile
