@@ -399,11 +399,41 @@ h2 { font-size: clamp(3rem, 6.5vw, 6.5rem); }
 .format-card-water { background: #3f5f5e; }
 .card-top { display: flex; justify-content: space-between; border-bottom: 1px solid rgba(240,237,229,.28); padding-bottom: 16px; color: rgba(240,237,229,.72); }
 .card-mark { color: var(--paper); font: 35px var(--serif); line-height: .5; }
+
+/* Mídia do Card Ori do Mundo */
+.card-media {
+  flex: 1;
+  min-height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 18px 0 20px;
+  overflow: hidden;
+  border-radius: 6px;
+  border: 1px solid rgba(240,237,229,.2);
+  background: rgba(20,16,13,.2);
+}
+.card-media img {
+  width: 100%;
+  height: 100%;
+  max-height: 310px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 6px;
+  filter: saturate(.92) contrast(1.02);
+  transition: transform .6s ease, filter .6s ease;
+}
+.format-card:hover .card-media img {
+  transform: scale(1.04);
+  filter: saturate(1.05) contrast(1.05);
+}
+
 .card-art { flex: 1; min-height: 310px; display: flex; flex-direction: column; justify-content: center; align-items: center; color: rgba(240,237,229,.85); font: 400 clamp(3.2rem, 6vw, 6.5rem)/.8 var(--serif); letter-spacing: -.08em; text-align: center; text-transform: lowercase; }
 .format-card-earth .card-art::before, .format-card-water .card-art::before { content: ''; position: absolute; width: 220px; height: 220px; border: 1px solid rgba(240,237,229,.35); border-radius: 52% 48% 45% 55%; transform: rotate(-22deg); }
 .format-card-water .card-art::before { border-radius: 48% 52% 60% 40%; transform: rotate(38deg); }
 .card-art span { position: relative; z-index: 1; }
 .card-art span + span { margin-left: 65px; color: var(--paper); }
+
 .card-copy { border-top: 1px solid rgba(240,237,229,.28); padding-top: 22px; }
 .card-copy h3 { font-size: 2rem; margin-bottom: 12px; }
 .card-copy p { max-width: 430px; color: rgba(240,237,229,.78); font-size: 14px; line-height: 1.65; margin: 0 0 25px; }
@@ -525,6 +555,7 @@ h2 { font-size: clamp(3rem, 6.5vw, 6.5rem); }
   .format-heading .kicker { margin-top: 3.5rem; }
   .format-grid { grid-template-columns: 1fr; gap: 18px; margin-top: 3.5rem; }
   .format-card { min-height: 560px; }
+  .card-media { min-height: 240px; }
   .card-art { min-height: 250px; }
   .headphones-layout { grid-template-columns: 1fr; gap: 3.5rem; margin: 4rem 0 0; }
   .headphones-copy .lead-copy { margin-top: 24px; }
