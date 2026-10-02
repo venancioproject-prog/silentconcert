@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f0ede5" />
+    <meta name="description" content="Silent Concert — música, palavra e escuta imersiva com fones de ouvido sem fio." />
+    <title>Silent Concert — música, palavra, escuta</title>
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <!-- Fundo atmosférico com imagem de concerto ao vivo -->
+    <div class="site-ambient-bg" aria-hidden="true">
+      <div class="bg-image"></div>
+      <div class="video-wash"></div>
+    </div>
+
+    <!-- Áudio de ambientação do Silent Concert -->
+    <audio id="ambient-audio" src="/audio/silent-concert-ambient.mp3" loop preload="metadata"></audio>
+
+    <header class="site-header">
+      <a class="wordmark" href="#top" aria-label="Silent Concert — voltar ao início">
+        <span>silent</span>
+        <span class="wordmark-rule">—</span>
+        <span>concert</span>
+      </a>
+
+      <div class="header-actions">
+        <button id="audio-toggle" class="audio-toggle" type="button" aria-label="Tocar prévia sonora">
+          <span class="audio-bars" aria-hidden="true">
+            <i></i><i></i><i></i><i></i>
+          </span>
+          <span class="audio-label">ouvir atmosfera</span>
+        </button>
+
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+          <span>Menu</span><span class="menu-icon" aria-hidden="true"><i></i><i></i></span>
+        </button>
+      </div>
+
+      <nav id="site-nav" class="site-nav" aria-label="Navegação principal">
+        <a href="#experiencia">a experiência</a>
+        <a href="#formatos">formatos</a>
+        <a href="#artistas">artistas</a>
+        <a class="nav-cta" href="#contato">levar para um espaço <span>↗</span></a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero section-dark" aria-labelledby="hero-title">
+        <div class="hero-frame frame-corners">
+          <span class="frame-note frame-note-top">arquivo 01 / presença</span>
+          <span class="frame-note frame-note-bottom">vol. 01 — 2026</span>
+        </div>
+        <div class="hero-content reveal">
+          <p class="eyebrow"><span class="pulse-dot"></span> música <i>•</i> palavra <i>•</i> escuta</p>
+          <h1 id="hero-title">Escutar<br /><em>também</em> é<br />entrar.</h1>
+          <p class="hero-intro">Um concerto imersivo ao vivo, por fones de ouvido sem fio. Voz, violão, percussão e palavra em uma experiência íntima — compartilhada em comunidade.</p>
+          <div class="hero-actions">
+            <a class="scroll-cue" href="#experiencia"><span class="scroll-line"></span><span>descer para ouvir</span></a>
+          </div>
+        </div>
+        <div class="hero-side-note">Yèyé Osunsade<br /><span>com Japa System</span></div>
+      </section>
+
+      <div class="ticker" aria-hidden="true">
+        <div class="ticker-track"><span>música ao vivo</span><b>✳</b><span>poesia &amp; narrativa</span><b>✳</b><span>escuta imersiva</span><b>✳</b><span>presença coletiva</span><b>✳</b><span>música ao vivo</span><b>✳</b><span>poesia &amp; narrativa</span><b>✳</b><span>escuta imersiva</span><b>✳</b><span>presença coletiva</span><b>✳</b></div>
+      </div>
+
+      <section id="experiencia" class="paper-section experience section-pad">
+        <div class="section-index reveal">01 <span>— a experiência</span></div>
+        <div class="experience-intro reveal">
+          <p class="kicker">um concerto para dentro</p>
+          <h2>O silêncio não é<br /><em>vazio.</em></h2>
+          <p class="lead-copy">É o lugar onde a voz chega mais perto. Silent Concert transforma a própria escuta em linguagem artística: um espaço compartilhado em que cada pessoa recebe a música por dentro.</p>
+        </div>
+
+        <div class="experience-gallery reveal">
+          <figure class="gallery-card">
+            <img src="/images/concert-live-1.jpg" alt="Apresentação ao vivo do Silent Concert com público em escuta imersiva" loading="lazy" />
+            <figcaption>registro de escuta coletiva — intimidade compartilhada</figcaption>
+          </figure>
+          <figure class="gallery-card">
+            <img src="/images/concert-live-2.jpg" alt="Público imerso na experiência sonora com fones sem fio" loading="lazy" />
+            <figcaption>conexão direta através da tecnologia silenciosa</figcaption>
+          </figure>
+        </div>
+
+        <div class="pillar-list">
+          <article class="pillar reveal">
+            <span class="pillar-number">01</span>
+            <div><h3>Música ao vivo</h3><p>Voz, violão, percussão e texturas sonoras se encontram em um ambiente de escuta cuidadosamente desenhado.</p></div>
+          </article>
+          <article class="pillar reveal">
+            <span class="pillar-number">02</span>
+            <div><h3>Poesia &amp; narrativa</h3><p>Canções, palavra falada e narrativas ancestrais convidam à atenção interior e à profundidade emocional.</p></div>
+          </article>
+          <article class="pillar reveal">
+            <span class="pillar-number">03</span>
+            <div><h3>A escuta como ritual</h3><p>Os fones aproximam cada ouvinte, criando uma experiência pessoal compartilhada em comunidade.</p></div>
+          </article>
+        </div>
+      </section>
+
+      <section id="formatos" class="format-section section-pad">
+        <div class="format-heading reveal">
+          <div class="section-index">02 <span>— dois formatos</span></div>
+          <p class="kicker">duas águas, um mesmo convite</p>
+          <h2>Escolha por onde<br /><em>começar.</em></h2>
+        </div>
+        <div class="format-grid">
+          <article class="format-card format-card-earth reveal">
+            <div class="card-top"><span>formato 01</span><span class="card-mark">◌</span></div>
+            <div class="card-art" aria-hidden="true"><span>ori</span><span>do<br />mundo</span></div>
+            <div class="card-copy"><h3>Ori do Mundo</h3><p>Um show de cantos e poemas tradicionais yorùbá voltado ao fortalecimento da cabeça, ao equilíbrio interior e ao bem-estar mental.</p><a href="#contato">conhecer este formato <span>↗</span></a></div>
+          </article>
+          <article class="format-card format-card-water reveal">
+            <div class="card-top"><span>formato 02</span><span class="card-mark">≈</span></div>
+            <div class="card-art" aria-hidden="true"><span>oxum</span><span>passou<br />por aqui</span></div>
+            <div class="card-copy"><h3>Oxum Passou por Aqui</h3><p>Um show de cantos e poemas tradicionais nagôs e yorùbás inspirado nas águas, no autoconhecimento e na preservação dos rios, cachoeiras, lagoas, mares e oceanos.</p><a href="#contato">conhecer este formato <span>↗</span></a></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="headphones-section section-dark section-pad" aria-labelledby="headphones-title">
+        <div class="section-index reveal">03 <span>— por que fones?</span></div>
+        <div class="headphones-layout">
+          <div class="headphones-copy reveal"><p class="kicker">ouvido em conjunto</p><h2 id="headphones-title">Sentido<br /><em>por dentro.</em></h2><p class="lead-copy">O ruído externo se apaga para que a atenção possa repousar inteiramente na experiência. Um concerto coletivo se torna íntimo, pessoal e compartilhado ao mesmo tempo.</p></div>
+          <div class="reason-list">
+            <article class="reason reveal"><span>01</span><div><h3>Imersão</h3><p>Cada voz, ritmo e silêncio chega diretamente ao público.</p></div></article>
+            <article class="reason reveal"><span>02</span><div><h3>Presença</h3><p>O mundo desacelera. A escuta encontra um corpo inteiro disponível.</p></div></article>
+            <article class="reason reveal"><span>03</span><div><h3>Conexão</h3><p>O íntimo se torna coletivo sem deixar de ser singular.</p></div></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="live-section paper-section section-pad" aria-labelledby="live-title">
+        <div class="section-index reveal">04 <span>— experiência ao vivo</span></div>
+        <div class="live-quote reveal"><span class="quote-mark">“</span><h2 id="live-title">Um ritual coletivo<br />de <em>escuta.</em></h2><p>Voz ao vivo, violão, percussão e escuta por fones criam uma atmosfera de presença — íntima, porosa, em movimento.</p></div>
+        <div class="live-details">
+          <div class="live-detail reveal"><span>o espaço</span><p>Festivais, museus, centros culturais, retiros e encontros educativos e comunitários.</p></div>
+          <div class="live-detail reveal"><span>a estrutura</span><p>Fones de ouvido sem fio, voz, violão, percussão e suporte de som conforme a necessidade.</p></div>
+          <div class="live-detail reveal"><span>a duração</span><p>Adaptável às necessidades de cada programação, preservando a linguagem central.</p></div>
+        </div>
+      </section>
+
+      <section id="artistas" class="artists-section section-pad">
+        <div class="section-index reveal">05 <span>— os artistas</span></div>
+        <div class="artists-heading reveal"><p class="kicker">duas trajetórias, um encontro</p><h2>Quem sustenta<br />essa <em>escuta.</em></h2></div>
+        <div class="artist-grid">
+          <article class="artist-card reveal">
+            <div class="artist-avatar avatar-photo">
+              <img src="/images/yeye-osunsade.jpg" alt="Yèyé Osunsade" loading="lazy" />
+            </div>
+            <div class="artist-meta">
+              <span>voz · palavra · cuidado</span>
+              <h3>Yèyé<br />Osunsade</h3>
+              <p>Jornalista, escritora e sacerdotisa de Òṣun. Seu trabalho articula oralidade, ancestralidade, música e cuidado em experiências voltadas à presença, ao autoconhecimento e à conexão coletiva.</p>
+            </div>
+          </article>
+          <article class="artist-card reveal">
+            <div class="artist-avatar avatar-photo">
+              <img src="/images/japa-system.jpg" alt="Japa System" loading="lazy" />
+            </div>
+            <div class="artist-meta">
+              <span>percussão · ritmo · matéria</span>
+              <h3>Japa<br />System</h3>
+              <p>Músico e percussionista, integrante do BaianaSystem desde 2013. Criador da Nave System, um setup autoral que combina percussão eletrônica e orgânica.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="contato" class="contact-section section-dark section-pad">
+        <div class="contact-stamp reveal">silent<br /><span>concert</span></div>
+        <div class="contact-content reveal">
+          <p class="kicker">para o seu espaço</p>
+          <h2>Onde a escuta<br /><em>pode chegar?</em></h2>
+          <p>Leve Silent Concert para o seu festival, instituição ou programação especial.</p>
+          <a class="contact-link" href="https://instagram.com/yeye___oshun" target="_blank" rel="noreferrer">falar com a gente <span>↗</span></a>
+        </div>
+        <div class="contact-footer">
+          <span>música • palavra • escuta</span>
+          <span>@yeye___oshun</span>
+          <span>© 2026 silent concert</span>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
