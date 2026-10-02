@@ -2,7 +2,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const menuToggle = document.querySelector('.menu-toggle');
   const siteNav = document.querySelector('.site-nav');
   const audioToggle = document.querySelector('#audio-toggle');
+  const heroPlayBtn = document.querySelector('#hero-play-btn');
   const ambientAudio = document.querySelector('#ambient-audio');
+  const ambientVideo = document.querySelector('#ambient-video');
+
+  // Garante que o vídeo de fundo rode em mudo e com autoplay
+  if (ambientVideo) {
+    ambientVideo.muted = true;
+    ambientVideo.play().catch(() => {
+      // Autoplay fallback
+    });
+  }
 
   // Menu mobile
   menuToggle?.addEventListener('click', () => {
@@ -18,23 +28,32 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Controle de Áudio Atmosférico
-  if (audioToggle && ambientAudio) {
-    const audioLabel = audioToggle.querySelector('.audio-label');
+  // Controle de Áudio Atmosférico (Header + Botão de Destaque no Hero)
+  if (ambientAudio) {
+    const audioLabel = audioToggle?.querySelector('.audio-label');
+    const heroPlayTitle = heroPlayBtn?.querySelector('.hero-play-title');
 
     const updateAudioState = (isPlaying) => {
       if (isPlaying) {
-        audioToggle.classList.add('is-playing');
-        audioToggle.setAttribute('aria-label', 'Pausar áudio ambiente');
+        audioToggle?.classList.add('is-playing');
+        audioToggle?.setAttribute('aria-label', 'Pausar áudio ambiente');
         if (audioLabel) audioLabel.textContent = 'pausar atmosfera';
+
+        heroPlayBtn?.classList.add('is-playing');
+        heroPlayBtn?.setAttribute('aria-label', 'Pausar experiência sonora');
+        if (heroPlayTitle) heroPlayTitle.textContent = 'Pausar experiência';
       } else {
-        audioToggle.classList.remove('is-playing');
-        audioToggle.setAttribute('aria-label', 'Tocar áudio ambiente');
+        audioToggle?.classList.remove('is-playing');
+        audioToggle?.setAttribute('aria-label', 'Tocar áudio ambiente');
         if (audioLabel) audioLabel.textContent = 'ouvir atmosfera';
+
+        heroPlayBtn?.classList.remove('is-playing');
+        heroPlayBtn?.setAttribute('aria-label', 'Sentir a experiência sonora');
+        if (heroPlayTitle) heroPlayTitle.textContent = 'Sentir a experiência';
       }
     };
 
-    audioToggle.addEventListener('click', async () => {
+    const togglePlayback = async () => {
       try {
         if (ambientAudio.paused) {
           await ambientAudio.play();
@@ -46,7 +65,10 @@ document.addEventListener('DOMContentLoaded', () => {
       } catch (err) {
         console.warn('Playback error:', err);
       }
-    });
+    };
+
+    audioToggle?.addEventListener('click', togglePlayback);
+    heroPlayBtn?.addEventListener('click', togglePlayback);
 
     ambientAudio.addEventListener('pause', () => updateAudioState(false));
     ambientAudio.addEventListener('play', () => updateAudioState(true));

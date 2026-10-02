@@ -10,13 +10,15 @@
     <link rel="stylesheet" href="./assets/css/styles.css" />
   </head>
   <body>
-    <!-- Fundo atmosférico com imagem de concerto ao vivo -->
+    <!-- Fundo atmosférico em vídeo (mudo por padrão) -->
     <div class="site-ambient-bg" aria-hidden="true">
-      <div class="bg-image"></div>
+      <video id="ambient-video" autoplay muted loop playsinline preload="auto">
+        <source src="./assets/videos/background-video.mp4" type="video/mp4" />
+      </video>
       <div class="video-wash"></div>
     </div>
 
-    <!-- Áudio de ambientação do Silent Concert -->
+    <!-- Áudio oficial do projeto Silent Concert -->
     <audio id="ambient-audio" src="./assets/audio/silent-concert-ambient.mp3" loop preload="metadata"></audio>
 
     <header class="site-header">
@@ -27,7 +29,7 @@
       </a>
 
       <div class="header-actions">
-        <button id="audio-toggle" class="audio-toggle" type="button" aria-label="Tocar prévia sonora">
+        <button id="audio-toggle" class="audio-toggle" type="button" aria-label="Tocar áudio da experiência">
           <span class="audio-bars" aria-hidden="true">
             <i></i><i></i><i></i><i></i>
           </span>
@@ -57,8 +59,22 @@
           <p class="eyebrow"><span class="pulse-dot"></span> música <i>•</i> palavra <i>•</i> escuta</p>
           <h1 id="hero-title">Escutar<br /><em>também</em> é<br />entrar.</h1>
           <p class="hero-intro">Um concerto imersivo ao vivo, por fones de ouvido sem fio. Voz, violão, percussão e palavra em uma experiência íntima — compartilhada em comunidade.</p>
+          
           <div class="hero-actions">
-            <a class="scroll-cue" href="#experiencia"><span class="scroll-line"></span><span>descer para ouvir</span></a>
+            <button id="hero-play-btn" class="hero-play-btn" type="button" aria-label="Sentir a experiência sonora">
+              <span class="play-icon-circle">
+                <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><polygon points="7 4 20 12 7 20"></polygon></svg>
+                <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"></rect><rect x="14" y="5" width="4" height="14" rx="1"></rect></svg>
+              </span>
+              <span class="hero-play-content">
+                <span class="hero-play-title">Sentir a experiência</span>
+                <span class="hero-play-sub">ouvir prévia sonora</span>
+              </span>
+              <span class="hero-play-waves" aria-hidden="true">
+                <i></i><i></i><i></i><i></i>
+              </span>
+            </button>
+            <a class="scroll-cue" href="#experiencia"><span class="scroll-line"></span><span>descer para saber mais</span></a>
           </div>
         </div>
         <div class="hero-side-note">Yèyé Osunsade<br /><span>com Japa System</span></div>

@@ -8,6 +8,7 @@
   --line: rgba(35, 29, 25, .2);
   --night: #29221e;
   --terracotta: #a75b42;
+  --terracotta-glow: rgba(167, 91, 66, 0.45);
   --moss: #66705b;
   --water: #6b8c87;
   --serif: 'Fraunces', Georgia, serif;
@@ -21,22 +22,20 @@ body { margin: 0; color: var(--ink); background: var(--paper); font-family: var(
 a { color: inherit; text-decoration: none; }
 button { font: inherit; }
 
-/* Fundo atmosférico */
-.site-ambient-bg { position: fixed; inset: 0; z-index: -2; overflow: hidden; background: #231d19; }
-.site-ambient-bg .bg-image {
-  position: absolute;
-  inset: 0;
-  background-image: url('./assets/images/concert-live-1.jpg');
-  background-size: cover;
-  background-position: center 30%;
-  filter: saturate(.65) contrast(.95) brightness(.75) sepia(.12);
-  transform: scale(1.05);
-  transition: transform 12s ease-out;
+/* Fundo atmosférico em vídeo */
+.site-ambient-bg { position: fixed; inset: 0; z-index: -2; overflow: hidden; background: #1b1613; }
+.site-ambient-bg video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(.72) contrast(.96) brightness(.72) sepia(.08);
+  transform: scale(1.03);
 }
 .video-wash {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(41,34,30,.45) 0%, rgba(41,34,30,.7) 60%, rgba(240,237,229,.95) 100%);
+  background: linear-gradient(180deg, rgba(35,29,25,.6) 0%, rgba(35,29,25,.75) 55%, rgba(240,237,229,.96) 100%);
 }
 
 /* Cabeçalho & Ações */
@@ -51,7 +50,7 @@ button { font: inherit; }
   justify-content: space-between;
   padding: 20px 4.6vw;
   color: var(--paper);
-  background: linear-gradient(180deg, rgba(29,24,21,.75) 0%, rgba(29,24,21,0) 100%);
+  background: linear-gradient(180deg, rgba(25,20,18,.8) 0%, rgba(25,20,18,0) 100%);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   transition: background .3s ease;
@@ -61,7 +60,7 @@ button { font: inherit; }
 
 .header-actions { display: flex; align-items: center; gap: 16px; }
 
-/* Botão de Áudio Atmosférico */
+/* Botão de Áudio no Cabeçalho */
 .audio-toggle {
   display: inline-flex;
   align-items: center;
@@ -84,9 +83,10 @@ button { font: inherit; }
   color: #fff;
 }
 .audio-toggle.is-playing {
-  background: rgba(167, 91, 66, .35);
+  background: rgba(167, 91, 66, .4);
   border-color: var(--terracotta);
   color: #fff;
+  box-shadow: 0 0 16px var(--terracotta-glow);
 }
 
 .audio-bars {
@@ -128,7 +128,7 @@ button { font: inherit; }
 
 /* Hero */
 .section-dark { color: var(--paper); background: rgba(41, 34, 30, .92); }
-.hero { min-height: 100vh; position: relative; display: flex; align-items: center; padding: 16vh 9vw 12vh; isolation: isolate; background: linear-gradient(90deg, rgba(41,34,30,.8) 0%, rgba(41,34,30,.45) 60%, rgba(41,34,30,.15) 100%); overflow: hidden; }
+.hero { min-height: 100vh; position: relative; display: flex; align-items: center; padding: 16vh 9vw 12vh; isolation: isolate; background: linear-gradient(90deg, rgba(35,29,25,.85) 0%, rgba(35,29,25,.5) 60%, rgba(35,29,25,.2) 100%); overflow: hidden; }
 .hero::after { content: ''; position: absolute; inset: 0; z-index: -1; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 140 140' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.15'/%3E%3C/svg%3E"); mix-blend-mode: overlay; opacity: .14; pointer-events: none; }
 .hero-frame { position: absolute; inset: 10vh 4.6vw 5vh; border: 1px solid rgba(240,237,229,.28); pointer-events: none; }
 .frame-corners::before, .frame-corners::after { content: ''; position: absolute; width: 28px; height: 28px; border-color: var(--paper); border-style: solid; opacity: .65; }
@@ -137,7 +137,7 @@ button { font: inherit; }
 .frame-note { position: absolute; font: 9px var(--mono); letter-spacing: .12em; text-transform: uppercase; color: rgba(240,237,229,.72); }
 .frame-note-top { top: 16px; right: 18px; }
 .frame-note-bottom { bottom: 14px; left: 18px; }
-.hero-content { position: relative; z-index: 1; max-width: 680px; margin-top: 2vh; transform: translateY(calc(var(--hero-shift, 0px) * -1)); }
+.hero-content { position: relative; z-index: 1; max-width: 720px; margin-top: 2vh; transform: translateY(calc(var(--hero-shift, 0px) * -1)); }
 .eyebrow, .kicker, .section-index, .card-top, .artist-meta > span, .live-detail > span, .contact-footer, .gallery-card figcaption { font: 10px var(--mono); letter-spacing: .11em; text-transform: uppercase; }
 .eyebrow { color: rgba(240,237,229,.78); display: flex; align-items: center; gap: 8px; margin-bottom: 25px; }
 .eyebrow i { font-style: normal; color: var(--terracotta); }
@@ -145,8 +145,112 @@ button { font: inherit; }
 h1, h2, h3 { margin: 0; font-family: var(--serif); font-weight: 400; letter-spacing: -.045em; line-height: .95; }
 h1 { font-size: clamp(3.8rem, 9.2vw, 8.8rem); max-width: 880px; }
 h1 em, h2 em { color: var(--terracotta); font-style: italic; }
-.hero-intro { max-width: 390px; margin: 34px 0 0 5px; color: rgba(240,237,229,.85); font-size: 15px; line-height: 1.65; }
-.scroll-cue { display: inline-flex; align-items: center; gap: 12px; margin: 44px 0 0 5px; font: 9px var(--mono); letter-spacing: .11em; text-transform: uppercase; color: var(--paper); opacity: .75; }
+.hero-intro { max-width: 440px; margin: 30px 0 0 5px; color: rgba(240,237,229,.88); font-size: 15px; line-height: 1.65; }
+
+/* Botão de Destaque "Sentir a Experiência" no Hero */
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 24px;
+  margin-top: 36px;
+}
+.hero-play-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+  background: rgba(240, 237, 229, .12);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(240, 237, 229, .32);
+  border-radius: 60px;
+  padding: 10px 22px 10px 10px;
+  color: var(--paper);
+  cursor: pointer;
+  transition: all .35s cubic-bezier(.22,.61,.36,1);
+}
+.hero-play-btn:hover {
+  background: rgba(240, 237, 229, .22);
+  border-color: var(--terracotta);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0,0,0,.25);
+}
+.hero-play-btn.is-playing {
+  background: rgba(167, 91, 66, .35);
+  border-color: var(--terracotta);
+  box-shadow: 0 0 24px var(--terracotta-glow);
+}
+
+.play-icon-circle {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--terracotta);
+  color: var(--paper);
+  display: grid;
+  place-content: center;
+  position: relative;
+  transition: transform .3s ease, background .3s ease;
+}
+.play-icon-circle svg {
+  width: 18px;
+  height: 18px;
+}
+.play-icon-circle .icon-pause { display: none; }
+.hero-play-btn.is-playing .play-icon-circle .icon-play { display: none; }
+.hero-play-btn.is-playing .play-icon-circle .icon-pause { display: block; }
+.hero-play-btn:hover .play-icon-circle { transform: scale(1.08); }
+
+.hero-play-content {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+.hero-play-title {
+  font-family: var(--serif);
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -.01em;
+  color: #fff;
+}
+.hero-play-sub {
+  font-family: var(--mono);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: rgba(240,237,229,.72);
+}
+
+.hero-play-waves {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 14px;
+  margin-left: 4px;
+}
+.hero-play-waves i {
+  width: 2px;
+  height: 4px;
+  background: var(--paper);
+  opacity: .5;
+  border-radius: 1px;
+}
+.hero-play-btn.is-playing .hero-play-waves i {
+  opacity: 1;
+  background: var(--terracotta);
+  animation: heroWavePulse 0.9s ease-in-out infinite alternate;
+}
+.hero-play-btn.is-playing .hero-play-waves i:nth-child(1) { animation-delay: 0.1s; }
+.hero-play-btn.is-playing .hero-play-waves i:nth-child(2) { animation-delay: 0.3s; }
+.hero-play-btn.is-playing .hero-play-waves i:nth-child(3) { animation-delay: 0.15s; }
+.hero-play-btn.is-playing .hero-play-waves i:nth-child(4) { animation-delay: 0.45s; }
+
+@keyframes heroWavePulse {
+  0% { height: 3px; }
+  100% { height: 14px; }
+}
+
+.scroll-cue { display: inline-flex; align-items: center; gap: 12px; font: 9px var(--mono); letter-spacing: .11em; text-transform: uppercase; color: var(--paper); opacity: .75; }
 .scroll-line { width: 43px; height: 1px; background: var(--terracotta); display: inline-block; }
 .hero-side-note { position: absolute; right: 9vw; bottom: 11vh; z-index: 1; font: 10px var(--mono); letter-spacing: .08em; text-transform: uppercase; line-height: 1.7; color: rgba(240,237,229,.82); text-align: right; }
 .hero-side-note span { color: var(--terracotta); }
@@ -335,7 +439,9 @@ h2 { font-size: clamp(3rem, 6.5vw, 6.5rem); }
   .hero-content { margin-top: 0; }
   .hero-side-note { right: 7vw; bottom: 6vh; }
   .hero-intro { margin-top: 24px; font-size: 14px; max-width: 320px; }
-  .scroll-cue { margin-top: 30px; }
+  .hero-actions { gap: 18px; margin-top: 28px; }
+  .hero-play-btn { width: 100%; max-width: 320px; }
+  .scroll-cue { margin-top: 10px; }
   .section-pad { padding: 5.5rem 7vw 6rem; }
   .experience-intro { width: 100%; margin: 4rem 0 4.5rem; }
   .experience-intro .lead-copy, .live-quote p { margin-left: 0; }
@@ -370,5 +476,5 @@ h2 { font-size: clamp(3rem, 6.5vw, 6.5rem); }
   html { scroll-behavior: auto; }
   .ticker-track { animation: none; }
   .reveal { opacity: 1; transform: none; transition: none; }
-  .audio-toggle.is-playing .audio-bars i { animation: none; height: 8px; }
+  .audio-toggle.is-playing .audio-bars i, .hero-play-btn.is-playing .hero-play-waves i { animation: none; height: 8px; }
 }
