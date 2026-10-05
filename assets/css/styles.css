@@ -931,31 +931,7 @@ h1#hero-title {
 }
 
 .contact-header-wrap {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
   margin-bottom: var(--s-4);
-}
-
-.contact-stamp {
-  position: absolute;
-  top: -10px;
-  right: 0;
-  width: 110px;
-  height: 110px;
-  display: grid;
-  place-content: center;
-  border: 1px solid rgba(240,237,229,.25);
-  border-radius: 50%;
-  color: var(--terracotta);
-  font: 11px/.95 var(--serif);
-  text-align: center;
-  transform: rotate(12deg);
-}
-
-.contact-stamp span {
-  color: var(--paper);
 }
 
 .contact-content h2 {
@@ -1080,14 +1056,6 @@ h1#hero-title {
   .format-card {
     min-height: 440px;
     padding: var(--s-3);
-  }
-
-  .contact-stamp {
-    position: static;
-    margin-bottom: var(--s-3);
-    width: 85px;
-    height: 85px;
-    font-size: 9px;
   }
 
   .contact-footer {
