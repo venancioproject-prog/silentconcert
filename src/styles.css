@@ -403,9 +403,30 @@ h1#hero-title {
 .hero-side-note span { color: var(--terracotta-text); }
 
 /* Ticker Marquee */
-.ticker { overflow: hidden; background: var(--terracotta); color: var(--paper); padding: 13px 0 11px; white-space: nowrap; position: relative; z-index: 3; }
-.ticker-track { display: inline-flex; align-items: center; gap: 25px; animation: ticker 28s linear infinite; font: 10px var(--mono); letter-spacing: .12em; text-transform: uppercase; }
-.ticker-track b { font-size: 14px; font-weight: 400; color: rgba(240,237,229,.7); }
+.ticker { 
+  overflow: hidden; 
+  background: var(--terracotta); 
+  color: var(--paper); 
+  padding: 14px 0 12px; 
+  white-space: nowrap; 
+  position: relative; 
+  z-index: 3;
+  box-shadow: 0 4px 16px rgba(167, 91, 66, 0.18);
+}
+.ticker-track { 
+  display: inline-flex; 
+  align-items: center; 
+  gap: 28px; 
+  animation: ticker 60s linear infinite; 
+  font: 10.5px var(--mono); 
+  letter-spacing: .13em; 
+  text-transform: uppercase; 
+}
+.ticker-track b { 
+  font-size: 13px; 
+  font-weight: 400; 
+  color: rgba(240, 237, 229, .65); 
+}
 @keyframes ticker { to { transform: translateX(-50%); } }
 
 /* Seções e Estrutura de Padding */
