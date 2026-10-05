@@ -403,7 +403,32 @@ h1#hero-title {
 }
 
 .paper-section { background: var(--paper); color: var(--ink); }
-.section-dark { color: var(--paper); background: var(--night); }
+.section-dark { 
+  color: var(--paper); 
+  background: var(--night); 
+}
+
+.section-dark h1,
+.section-dark h2,
+.section-dark h3 {
+  color: var(--paper);
+}
+
+.section-dark h2 em {
+  color: #e08a6d;
+}
+
+.section-dark .kicker {
+  color: #e08a6d;
+}
+
+.section-dark .section-index {
+  color: #e08a6d;
+}
+
+.section-dark .section-index span {
+  color: rgba(240, 237, 229, 0.65);
+}
 
 /* Cabeçalho de Seção Editorial (2 Colunas Alinhadas) */
 .section-header-split {
@@ -437,7 +462,7 @@ h1#hero-title {
 
 .section-dark .section-header-split .lead-copy,
 .section-dark .section-header-split p:not(.kicker) {
-  color: rgba(240, 237, 229, .75);
+  color: rgba(240, 237, 229, .88);
 }
 
 /* SEÇÃO 01: EXPERIÊNCIA */
