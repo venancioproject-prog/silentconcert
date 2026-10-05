@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (audioLabel) audioLabel.textContent = 'pausar áudio';
 
         heroPlayBtn?.classList.add('is-playing');
-        heroPlayBtn?.setAttribute('aria-label', 'Pausar prévia sonora');
+        heroPlayBtn?.setAttribute('aria-label', 'Pausar áudio');
         if (heroPlayTitle) heroPlayTitle.textContent = 'Pausar áudio';
       } else {
         audioToggle?.classList.remove('is-playing');
@@ -51,8 +51,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (audioLabel) audioLabel.textContent = 'ouvir atmosfera';
 
         heroPlayBtn?.classList.remove('is-playing');
-        heroPlayBtn?.setAttribute('aria-label', 'Ouvir prévia sonora');
-        if (heroPlayTitle) heroPlayTitle.textContent = 'Ouvir prévia sonora';
+        heroPlayBtn?.setAttribute('aria-label', 'Ouvir um trecho');
+        if (heroPlayTitle) heroPlayTitle.textContent = 'Ouvir um trecho';
       }
     };
 
