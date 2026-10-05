@@ -251,16 +251,24 @@ h2 em {
   height: 100%;
   object-fit: cover;
   object-position: center;
-  filter: saturate(.95) contrast(1.02) brightness(1.02);
-  opacity: 0.78;
-  transform: scale(1.02);
+  filter: saturate(1.1) contrast(1.05);
+  opacity: 0.95;
+  transform: scale(1.01);
 }
 
 .hero-video-overlay {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at center, rgba(240,237,229,.4) 0%, rgba(240,237,229,.58) 60%, rgba(240,237,229,.78) 100%),
-              linear-gradient(180deg, rgba(240,237,229,.6) 0%, rgba(240,237,229,.2) 40%, rgba(240,237,229,.7) 100%);
+  background: linear-gradient(180deg, 
+                rgba(240, 237, 229, 0.42) 0%, 
+                rgba(240, 237, 229, 0.12) 28%, 
+                rgba(240, 237, 229, 0.16) 65%, 
+                rgba(240, 237, 229, 0.72) 100%),
+              radial-gradient(ellipse at 50% 48%, 
+                rgba(240, 237, 229, 0.4) 0%, 
+                rgba(240, 237, 229, 0.12) 55%, 
+                transparent 80%);
+  pointer-events: none;
 }
 
 .hero-frame {
@@ -287,8 +295,12 @@ h2 em {
   font: 9px var(--mono);
   letter-spacing: .12em;
   text-transform: uppercase;
-  color: rgba(35,29,25,.65);
-  text-shadow: 0 1px 3px rgba(255,255,255,.8);
+  color: var(--ink);
+  background: rgba(240, 237, 229, 0.78);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  padding: 3px 8px;
+  border-radius: 2px;
 }
 .frame-note-top { top: 14px; right: 16px; }
 .frame-note-bottom { bottom: 12px; left: 16px; }
@@ -314,22 +326,29 @@ h2 em {
   margin-bottom: 20px;
   letter-spacing: .14em;
   font-weight: 500;
+  padding: 6px 16px;
+  background: rgba(240, 237, 229, 0.82);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(167, 91, 66, 0.18);
+  border-radius: 40px;
+  box-shadow: 0 2px 10px rgba(35, 29, 25, 0.05);
 }
 .eyebrow i { font-style: normal; color: var(--terracotta); }
 .pulse-dot { width: 6px; height: 6px; background: var(--terracotta); border-radius: 50%; display: inline-block; box-shadow: 0 0 0 4px rgba(167,91,66,.25); }
 
 h1#hero-title {
-  text-shadow: 0 0 25px rgba(240,237,229,.95), 0 2px 10px rgba(240,237,229,.9);
+  text-shadow: 0 0 32px rgba(240,237,229, 1), 0 0 16px rgba(240,237,229, 0.95), 0 1px 2px rgba(255,255,255, 0.9);
 }
 
 .hero-intro {
   max-width: 580px;
   margin: 22px auto 0;
-  color: #382e27;
+  color: #231d19;
   font-size: clamp(14px, 1.15vw, 16px);
   line-height: 1.68;
   text-align: center;
-  text-shadow: 0 0 16px rgba(240,237,229,.95), 0 1px 4px rgba(240,237,229,.9);
+  text-shadow: 0 0 24px rgba(240,237,229, 1), 0 0 12px rgba(240,237,229, 0.95), 0 1px 2px rgba(255,255,255, 0.9);
 }
 
 .hero-actions {
@@ -401,8 +420,30 @@ h1#hero-title {
 
 @keyframes heroWavePulse { 0% { height: 3px; } 100% { height: 14px; } }
 
-.scroll-cue { display: inline-flex; align-items: center; gap: 12px; font: 9px var(--mono); letter-spacing: .11em; text-transform: uppercase; color: var(--ink); opacity: .8; }
-.scroll-line { width: 36px; height: 1px; background: var(--terracotta); display: inline-block; }
+.scroll-cue {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font: 10px var(--mono);
+  letter-spacing: .11em;
+  text-transform: uppercase;
+  color: var(--ink);
+  padding: 10px 18px;
+  background: rgba(240, 237, 229, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(167, 91, 66, 0.2);
+  border-radius: 40px;
+  box-shadow: 0 4px 14px rgba(35, 29, 25, 0.08);
+  transition: all .25s ease;
+}
+.scroll-cue:hover {
+  background: #ffffff;
+  border-color: var(--terracotta);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(167, 91, 66, 0.16);
+}
+.scroll-line { width: 28px; height: 1.5px; background: var(--terracotta); display: inline-block; }
 
 .hero-side-note {
   position: absolute;
@@ -413,9 +454,15 @@ h1#hero-title {
   letter-spacing: .08em;
   text-transform: uppercase;
   line-height: 1.6;
-  color: rgba(35,29,25,.75);
+  color: var(--ink);
   text-align: right;
-  text-shadow: 0 1px 4px rgba(255,255,255,.8);
+  padding: 8px 14px;
+  background: rgba(240, 237, 229, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 4px;
+  border: 1px solid rgba(167, 91, 66, 0.18);
+  box-shadow: 0 4px 14px rgba(35, 29, 25, 0.06);
 }
 .hero-side-note span { color: var(--terracotta-text); }
 
