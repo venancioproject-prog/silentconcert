@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (ambientAudio) {
     const audioLabel = audioToggle?.querySelector('.audio-label');
     const heroPlayTitle = heroPlayBtn?.querySelector('.hero-play-title');
+    const heroPlaySub = heroPlayBtn?.querySelector('.hero-play-sub');
 
     const updateAudioState = (isPlaying) => {
       if (isPlaying) {
@@ -45,14 +46,16 @@ document.addEventListener('DOMContentLoaded', () => {
         heroPlayBtn?.classList.add('is-playing');
         heroPlayBtn?.setAttribute('aria-label', 'Pausar áudio');
         if (heroPlayTitle) heroPlayTitle.textContent = 'Pausar áudio';
+        if (heroPlaySub) heroPlaySub.textContent = 'tocando agora';
       } else {
         audioToggle?.classList.remove('is-playing');
         audioToggle?.setAttribute('aria-label', 'Tocar áudio da apresentação');
         if (audioLabel) audioLabel.textContent = 'ouvir atmosfera';
 
         heroPlayBtn?.classList.remove('is-playing');
-        heroPlayBtn?.setAttribute('aria-label', 'Ouvir um trecho');
-        if (heroPlayTitle) heroPlayTitle.textContent = 'Ouvir um trecho';
+        heroPlayBtn?.setAttribute('aria-label', 'Coloque seu fone de ouvido e viva essa experiência');
+        if (heroPlayTitle) heroPlayTitle.textContent = 'Coloque seu fone de ouvido';
+        if (heroPlaySub) heroPlaySub.textContent = 'e viva essa experiência';
       }
     };
 
