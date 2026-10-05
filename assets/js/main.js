@@ -39,20 +39,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const updateAudioState = (isPlaying) => {
       if (isPlaying) {
         audioToggle?.classList.add('is-playing');
-        audioToggle?.setAttribute('aria-label', 'Pausar áudio ambiente');
-        if (audioLabel) audioLabel.textContent = 'pausar atmosfera';
+        audioToggle?.setAttribute('aria-label', 'Pausar áudio da apresentação');
+        if (audioLabel) audioLabel.textContent = 'pausar áudio';
 
         heroPlayBtn?.classList.add('is-playing');
-        heroPlayBtn?.setAttribute('aria-label', 'Pausar experiência sonora');
-        if (heroPlayTitle) heroPlayTitle.textContent = 'Pausar experiência';
+        heroPlayBtn?.setAttribute('aria-label', 'Pausar prévia sonora');
+        if (heroPlayTitle) heroPlayTitle.textContent = 'Pausar áudio';
       } else {
         audioToggle?.classList.remove('is-playing');
-        audioToggle?.setAttribute('aria-label', 'Tocar áudio ambiente');
+        audioToggle?.setAttribute('aria-label', 'Tocar áudio da apresentação');
         if (audioLabel) audioLabel.textContent = 'ouvir atmosfera';
 
         heroPlayBtn?.classList.remove('is-playing');
-        heroPlayBtn?.setAttribute('aria-label', 'Sentir a experiência sonora');
-        if (heroPlayTitle) heroPlayTitle.textContent = 'Sentir a experiência';
+        heroPlayBtn?.setAttribute('aria-label', 'Ouvir prévia sonora');
+        if (heroPlayTitle) heroPlayTitle.textContent = 'Ouvir prévia sonora';
       }
     };
 
