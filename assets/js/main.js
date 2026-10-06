@@ -7,10 +7,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const heroVideoBg = document.querySelector('.hero-video-bg');
   const expVideo1 = document.querySelector('#experience-video-1');
   const expVideo2 = document.querySelector('#experience-video-2');
-  const expVideo3 = document.querySelector('#experience-video-3');
   const ambientVideo = document.querySelector('#ambient-video');
 
-  const expVideos = [expVideo1, expVideo2, expVideo3].filter(Boolean);
+  const expVideos = [expVideo1, expVideo2].filter(Boolean);
   let currentExpIndex = 0;
 
   expVideos.forEach((vid) => {
