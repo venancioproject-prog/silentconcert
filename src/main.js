@@ -4,10 +4,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const audioToggle = document.querySelector('#audio-toggle');
   const heroPlayBtn = document.querySelector('#hero-play-btn');
   const ambientAudio = document.querySelector('#ambient-audio');
-  const allVideos = document.querySelectorAll('video');
+  const heroVideoBg = document.querySelector('.hero-video-bg');
+  const experienceVideo = document.querySelector('#experience-video');
+  const ambientVideo = document.querySelector('#ambient-video');
 
-  // Garante que todos os vídeos rodem em mudo e com autoplay imediato
-  allVideos.forEach((vid) => {
+  // Garante que todos os vídeos (exceto o de experiência que só roda após o clique) rodem em mudo e com autoplay imediato
+  document.querySelectorAll('video:not(#experience-video)').forEach((vid) => {
     vid.muted = true;
     vid.defaultMuted = true;
     const tryPlay = () => vid.play().catch(() => {});
@@ -16,6 +18,11 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('click', tryPlay, { once: true });
     window.addEventListener('touchstart', tryPlay, { once: true });
   });
+
+  if (experienceVideo) {
+    experienceVideo.muted = true;
+    experienceVideo.defaultMuted = true;
+  }
 
   // Menu mobile
   menuToggle?.addEventListener('click', () => {
@@ -47,6 +54,12 @@ document.addEventListener('DOMContentLoaded', () => {
         heroPlayBtn?.setAttribute('aria-label', 'Pausar áudio');
         if (heroPlayTitle) heroPlayTitle.textContent = 'Pausar áudio';
         if (heroPlaySub) heroPlaySub.textContent = 'tocando agora';
+
+        heroVideoBg?.classList.add('is-experience');
+        if (experienceVideo) {
+          experienceVideo.currentTime = 0;
+          experienceVideo.play().catch(() => {});
+        }
       } else {
         audioToggle?.classList.remove('is-playing');
         audioToggle?.setAttribute('aria-label', 'Tocar áudio da apresentação');
@@ -56,6 +69,11 @@ document.addEventListener('DOMContentLoaded', () => {
         heroPlayBtn?.setAttribute('aria-label', 'Coloque seu fone de ouvido e viva essa experiência');
         if (heroPlayTitle) heroPlayTitle.textContent = 'Coloque seu fone de ouvido';
         if (heroPlaySub) heroPlaySub.textContent = 'e viva essa experiência';
+
+        heroVideoBg?.classList.remove('is-experience');
+        if (experienceVideo) {
+          experienceVideo.pause();
+        }
       }
     };
 

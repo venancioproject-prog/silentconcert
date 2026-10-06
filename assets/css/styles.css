@@ -191,6 +191,8 @@ h2 em {
 }
 
 .hero-video-bg video {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -198,11 +200,26 @@ h2 em {
   filter: saturate(1.1) contrast(1.05);
   opacity: 0.95;
   transform: scale(1.01);
+  transition: opacity 0.85s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hero-video-experience {
+  opacity: 0;
+  z-index: 1;
+}
+
+.hero-video-bg.is-experience .hero-video-experience {
+  opacity: 0.95;
+}
+
+.hero-video-bg.is-experience #ambient-video {
+  opacity: 0;
 }
 
 .hero-video-overlay {
   position: absolute;
   inset: 0;
+  z-index: 2;
   background: linear-gradient(180deg, 
                 rgba(240, 237, 229, 0.42) 0%, 
                 rgba(240, 237, 229, 0.12) 28%, 
