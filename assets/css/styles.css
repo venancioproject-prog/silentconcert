@@ -198,17 +198,22 @@ h2 em {
   object-fit: cover;
   object-position: center;
   filter: saturate(1.1) contrast(1.05);
-  opacity: 0.95;
   transform: scale(1.01);
   transition: opacity 0.85s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.hero-video-experience {
-  opacity: 0;
+.hero-video-bg #ambient-video {
   z-index: 1;
+  opacity: 0.95;
 }
 
-.hero-video-bg.is-experience .hero-video-experience {
+.hero-video-bg #experience-video {
+  z-index: 2;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.hero-video-bg.is-experience #experience-video {
   opacity: 0.95;
 }
 
@@ -219,7 +224,7 @@ h2 em {
 .hero-video-overlay {
   position: absolute;
   inset: 0;
-  z-index: 2;
+  z-index: 3;
   background: linear-gradient(180deg, 
                 rgba(240, 237, 229, 0.42) 0%, 
                 rgba(240, 237, 229, 0.12) 28%, 
