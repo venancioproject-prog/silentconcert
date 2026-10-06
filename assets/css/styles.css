@@ -250,21 +250,32 @@ h2 em {
 }
 
 .hero-intro {
-  max-width: 680px;
+  position: relative;
+  max-width: 650px;
   margin: 24px auto 0;
-  padding: 22px 28px;
-  background: rgba(247, 245, 240, 0.78);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(255, 255, 255, 0.7);
-  border-radius: 20px;
-  box-shadow: 0 8px 30px rgba(35, 29, 25, 0.05);
-  color: #1a1410;
+  padding: 14px 22px;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  color: #140f0c;
   font-weight: 450;
   font-size: clamp(14.5px, 1.2vw, 16.5px);
   line-height: 1.84;
   letter-spacing: -0.01em;
   text-align: center;
+}
+
+.hero-intro::before {
+  content: '';
+  position: absolute;
+  inset: -24px -44px;
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  -webkit-mask-image: radial-gradient(ellipse 70% 65% at 50% 50%, #000 45%, rgba(0, 0, 0, 0.55) 75%, transparent 100%);
+  mask-image: radial-gradient(ellipse 70% 65% at 50% 50%, #000 45%, rgba(0, 0, 0, 0.55) 75%, transparent 100%);
+  pointer-events: none;
+  z-index: -1;
+  border-radius: 40px;
 }
 
 .hero-actions {
@@ -1028,9 +1039,13 @@ h2 em {
   }
 
   .hero-intro {
-    padding: 16px 18px;
-    border-radius: 16px;
+    padding: 10px 14px;
     margin-top: 18px;
+  }
+
+  .hero-intro::before {
+    inset: -14px -18px;
+    border-radius: 28px;
   }
 
 
