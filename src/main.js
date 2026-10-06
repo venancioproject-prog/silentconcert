@@ -8,8 +8,37 @@ document.addEventListener('DOMContentLoaded', () => {
   const experienceVideo = document.querySelector('#experience-video');
   const ambientVideo = document.querySelector('#ambient-video');
 
-  // Garante que todos os vídeos (exceto o de experiência que só roda após o clique) rodem em mudo e com autoplay imediato
-  document.querySelectorAll('video:not(#experience-video)').forEach((vid) => {
+  // Garante que o vídeo de abertura inicial rode imediatamente e continue em looping contínuo
+  if (ambientVideo) {
+    ambientVideo.muted = true;
+    ambientVideo.defaultMuted = true;
+    ambientVideo.loop = true;
+
+    const playAmbient = () => {
+      if (ambientVideo.paused && !heroVideoBg?.classList.contains('is-experience')) {
+        ambientVideo.play().catch(() => {});
+      }
+    };
+
+    playAmbient();
+
+    // Fallback garantido de reinício em caso de interrupção ou término do ciclo
+    ambientVideo.addEventListener('ended', () => {
+      ambientVideo.currentTime = 0;
+      ambientVideo.play().catch(() => {});
+    });
+
+    window.addEventListener('scroll', playAmbient, { passive: true });
+    window.addEventListener('click', playAmbient);
+    window.addEventListener('touchstart', playAmbient);
+    document.addEventListener('visibilitychange', () => {
+      if (!document.hidden) playAmbient();
+    });
+    window.addEventListener('focus', playAmbient);
+  }
+
+  // Demais vídeos em cards (Ori e Oxum)
+  document.querySelectorAll('video.card-bg-video').forEach((vid) => {
     vid.muted = true;
     vid.defaultMuted = true;
     const tryPlay = () => vid.play().catch(() => {});
@@ -73,6 +102,9 @@ document.addEventListener('DOMContentLoaded', () => {
         heroVideoBg?.classList.remove('is-experience');
         if (experienceVideo) {
           experienceVideo.pause();
+        }
+        if (ambientVideo && ambientVideo.paused) {
+          ambientVideo.play().catch(() => {});
         }
       }
     };
