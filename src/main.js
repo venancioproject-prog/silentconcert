@@ -7,9 +7,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const heroVideoBg = document.querySelector('.hero-video-bg');
   const expVideo1 = document.querySelector('#experience-video-1');
   const expVideo2 = document.querySelector('#experience-video-2');
+  const expVideo3 = document.querySelector('#experience-video-3');
   const ambientVideo = document.querySelector('#ambient-video');
 
-  const expVideos = [expVideo1, expVideo2].filter(Boolean);
+  const expVideos = [expVideo1, expVideo2, expVideo3].filter(Boolean);
   let currentExpIndex = 0;
 
   expVideos.forEach((vid) => {
@@ -31,16 +32,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   };
 
-  expVideo1?.addEventListener('ended', () => {
-    if (heroVideoBg?.classList.contains('is-experience')) {
-      playExpSequence(1);
-    }
-  });
-
-  expVideo2?.addEventListener('ended', () => {
-    if (heroVideoBg?.classList.contains('is-experience')) {
-      playExpSequence(0);
-    }
+  // Encadeia automaticamente os vídeos pós-play em sequência cíclica contínua
+  expVideos.forEach((vid, i) => {
+    vid.addEventListener('ended', () => {
+      if (heroVideoBg?.classList.contains('is-experience')) {
+        const nextIndex = (i + 1) % expVideos.length;
+        playExpSequence(nextIndex);
+      }
+    });
   });
 
   // Garante que o vídeo de abertura inicial rode imediatamente e continue em looping contínuo
