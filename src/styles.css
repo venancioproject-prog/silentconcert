@@ -1057,6 +1057,10 @@ h2 em {
     border-radius: 28px;
   }
 
+  .hero-video-bg .hero-video-exp {
+    object-position: 14% center;
+  }
+
 
 
   .experience-gallery,
@@ -1117,6 +1121,10 @@ h2 em {
 
   .artist-meta {
     padding: 12px 10px;
+  }
+
+  .hero-video-bg .hero-video-exp {
+    object-position: 12% center;
   }
 }
 
