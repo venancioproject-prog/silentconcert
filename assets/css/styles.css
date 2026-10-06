@@ -773,14 +773,14 @@ h2 em {
 
 .artist-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--s-3);
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--s-4);
   align-items: stretch;
 }
 
 .artist-card {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: clamp(170px, 17vw, 210px) 1fr;
   background: var(--paper);
   border: 1px solid var(--line);
   border-radius: 4px;
@@ -799,8 +799,8 @@ h2 em {
   position: relative;
   overflow: hidden;
   background: #231d19;
-  height: 290px;
-  width: 100%;
+  height: 100%;
+  min-height: 250px;
 }
 
 .avatar-photo img {
@@ -823,18 +823,22 @@ h2 em {
   object-position: center 36%;
 }
 
+.artist-card-jessica .avatar-photo img {
+  object-position: center 22%;
+}
+
 .artist-card:hover .avatar-photo img {
   transform: scale(1.04);
   filter: saturate(.95) contrast(1);
 }
 
 .artist-meta {
-  padding: clamp(1.25rem, 2vw, 1.65rem);
-  border-top: 1px solid var(--line);
-  border-left: none;
+  padding: clamp(1.25rem, 2vw, 1.75rem);
+  border-top: none;
+  border-left: 1px solid var(--line);
   display: flex;
   flex-direction: column;
-  flex: 1;
+  justify-content: center;
 }
 
 .artist-meta > span {
@@ -1102,11 +1106,20 @@ h2 em {
 }
 
 @media (max-width: 600px) {
+  .artist-card {
+    display: flex;
+    flex-direction: column;
+  }
+
   .avatar-photo {
-    height: 270px;
+    height: 280px;
+    min-height: auto;
+    width: 100%;
   }
 
   .artist-meta {
+    border-left: none;
+    border-top: 1px solid var(--line);
     padding: var(--s-3);
   }
 
