@@ -207,18 +207,18 @@ h2 em {
   opacity: 0.68;
 }
 
-.hero-video-bg #experience-video {
+.hero-video-bg .hero-video-exp {
   z-index: 2;
   opacity: 0;
   pointer-events: none;
 }
 
-.hero-video-bg.is-experience #experience-video {
-  opacity: 0.70;
-}
-
 .hero-video-bg.is-experience #ambient-video {
   opacity: 0;
+}
+
+.hero-video-bg.is-experience .hero-video-exp.is-active {
+  opacity: 0.70;
 }
 
 .hero-video-overlay {

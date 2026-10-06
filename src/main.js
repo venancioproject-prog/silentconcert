@@ -5,8 +5,43 @@ document.addEventListener('DOMContentLoaded', () => {
   const heroPlayBtn = document.querySelector('#hero-play-btn');
   const ambientAudio = document.querySelector('#ambient-audio');
   const heroVideoBg = document.querySelector('.hero-video-bg');
-  const experienceVideo = document.querySelector('#experience-video');
+  const expVideo1 = document.querySelector('#experience-video-1');
+  const expVideo2 = document.querySelector('#experience-video-2');
   const ambientVideo = document.querySelector('#ambient-video');
+
+  const expVideos = [expVideo1, expVideo2].filter(Boolean);
+  let currentExpIndex = 0;
+
+  expVideos.forEach((vid) => {
+    vid.muted = true;
+    vid.defaultMuted = true;
+  });
+
+  const playExpSequence = (index) => {
+    currentExpIndex = index;
+    expVideos.forEach((vid, i) => {
+      if (i === index) {
+        vid.currentTime = 0;
+        vid.classList.add('is-active');
+        vid.play().catch(() => {});
+      } else {
+        vid.classList.remove('is-active');
+        vid.pause();
+      }
+    });
+  };
+
+  expVideo1?.addEventListener('ended', () => {
+    if (heroVideoBg?.classList.contains('is-experience')) {
+      playExpSequence(1);
+    }
+  });
+
+  expVideo2?.addEventListener('ended', () => {
+    if (heroVideoBg?.classList.contains('is-experience')) {
+      playExpSequence(0);
+    }
+  });
 
   // Garante que o vídeo de abertura inicial rode imediatamente e continue em looping contínuo
   if (ambientVideo) {
@@ -48,11 +83,6 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('touchstart', tryPlay, { once: true });
   });
 
-  if (experienceVideo) {
-    experienceVideo.muted = true;
-    experienceVideo.defaultMuted = true;
-  }
-
   // Menu mobile
   menuToggle?.addEventListener('click', () => {
     const isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
@@ -85,10 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (heroPlaySub) heroPlaySub.textContent = 'tocando agora';
 
         heroVideoBg?.classList.add('is-experience');
-        if (experienceVideo) {
-          experienceVideo.currentTime = 0;
-          experienceVideo.play().catch(() => {});
-        }
+        playExpSequence(0);
       } else {
         audioToggle?.classList.remove('is-playing');
         audioToggle?.setAttribute('aria-label', 'Tocar áudio da apresentação');
@@ -100,9 +127,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (heroPlaySub) heroPlaySub.textContent = 'e viva essa experiência';
 
         heroVideoBg?.classList.remove('is-experience');
-        if (experienceVideo) {
-          experienceVideo.pause();
-        }
+        expVideos.forEach((vid) => {
+          vid.pause();
+          vid.classList.remove('is-active');
+        });
         if (ambientVideo && ambientVideo.paused) {
           ambientVideo.play().catch(() => {});
         }
